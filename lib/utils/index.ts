@@ -19,4 +19,4 @@ export const regexCaseMap = {
    * hello, helloworld
    */
   flat: '+([a-z0-9])',
-};
+} as const;

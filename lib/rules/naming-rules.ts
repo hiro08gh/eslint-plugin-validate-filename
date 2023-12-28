@@ -12,7 +12,11 @@ const meta: Rule.RuleModule['meta'] = {
     recommended: false,
     url: '',
   },
-  messages: {},
+  messages: {
+    errorNoIndex: "Don't use index filename.",
+    errorNoMatchType: "Don't match filename type.",
+    errorNoMatchPattern: "Don't match filename pattern.",
+  },
   schema: [
     {
       type: 'object',
@@ -50,7 +54,7 @@ type RuleOptions = {
   index: boolean;
   rules: [
     {
-      type: string;
+      type: keyof typeof regexCaseMap;
       target: string;
       patterns: string;
     },
@@ -66,6 +70,51 @@ export const namingRules: Rule.RuleModule = {
         const filePath = context.filename;
         if (!rules || !filePath) {
           return;
+        }
+        /**
+         * target filename
+         **/
+        const targetRule = rules.find((v) =>
+          micromatch.isMatch(filePath, v.target),
+        );
+        if (targetRule) {
+          const ext = path.extname(filePath);
+          const filename = path.basename(filePath, ext);
+          if (index === true && filename === 'index') {
+            return;
+          }
+          /**
+           * check enable index filename. default: true
+           **/
+          if (index === false && filename === 'index') {
+            context.report({
+              node,
+              messageId: 'errorNoIndex',
+            });
+
+            return;
+          }
+
+          if (!micromatch.isMatch(filename, regexCaseMap[targetRule.type])) {
+            context.report({
+              node,
+              messageId: 'errorNoIndex',
+            });
+
+            return;
+          }
+
+          if (targetRule.patterns) {
+            const pattern = new RegExp(targetRule.patterns);
+            if (!pattern.test(filename)) {
+              context.report({
+                node,
+                messageId: 'errorNoMatchPattern',
+              });
+
+              return;
+            }
+          }
         }
       },
     };
