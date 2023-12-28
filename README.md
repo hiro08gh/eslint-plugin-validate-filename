@@ -18,23 +18,20 @@ TODO
 }
 ```
 
-TODO
-
-
 ### validate-filename/naming-rules
 
 ```javascript
 {
   "rules": {
-    "validate-filename/naming-rule": [
+    "validate-filename/naming-rules": [
       "error",
       {
         index: true,
         rules: [
           {
             type: 'camel',
-            target: "**/hooks/",
-            patterns: ['/^use/'],
+            target: "**/hooks/**",
+            patterns: '^use',
           }
         ] 
       }
