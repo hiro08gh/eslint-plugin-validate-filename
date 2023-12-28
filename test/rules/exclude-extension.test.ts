@@ -13,6 +13,34 @@ ruleTester.run('exclude-extension', excludeExtension, {
         {
           rules: [
             {
+              target: '*',
+              extensions: ['.tsx', '.ts'],
+            },
+          ],
+        },
+      ],
+    },
+    {
+      code: '',
+      filename: '/components/App.ts',
+      options: [
+        {
+          rules: [
+            {
+              target: '*',
+              extensions: ['.tsx', '.ts'],
+            },
+          ],
+        },
+      ],
+    },
+    {
+      code: '',
+      filename: '/components/App/App.tsx',
+      options: [
+        {
+          rules: [
+            {
               target: '**/components/**',
               extensions: ['.tsx'],
             },

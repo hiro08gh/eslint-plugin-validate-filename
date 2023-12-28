@@ -6,13 +6,12 @@ import { Rule } from 'eslint';
 const meta: Rule.RuleModule['meta'] = {
   type: 'layout',
   docs: {
-    description: '',
-    category: '',
+    description: 'Only certain extensions are allowed.',
     recommended: false,
     url: '',
   },
   messages: {
-    errorNoMatchType: "Don't match extension type.",
+    errorNoMatchExtensionType: "Don't match extension type.",
   },
   schema: [
     {
@@ -62,7 +61,7 @@ export const excludeExtension: Rule.RuleModule = {
           return;
         }
         /**
-         * target filename
+         * check target filename
          **/
         const targetRule = rules.find((v) =>
           micromatch.isMatch(filePath, v.target),
@@ -72,7 +71,7 @@ export const excludeExtension: Rule.RuleModule = {
           if (!targetRule.extensions.includes(ext)) {
             context.report({
               node,
-              messageId: 'errorNoMatchType',
+              messageId: 'errorNoMatchExtensionType',
             });
 
             return;

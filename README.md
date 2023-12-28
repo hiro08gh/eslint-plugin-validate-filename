@@ -44,6 +44,8 @@ TODO
 
 ### validate-filename/exclude-extension
 
+Only certain extensions are allowed. `target` is a regular expression that identifies the folder. `extensions ` you want to allow for extensions.
+
 ```javascript
 {
   "rules": {
@@ -52,7 +54,7 @@ TODO
       {
         rules: [
           {
-            target: "**/hooks/",
+            target: "**/hooks/**",
             extensions: ['.ts'],
           }
         ]
