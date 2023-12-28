@@ -50,7 +50,7 @@ type RuleOptions = {
   ];
 };
 
-export const excludeExtension: Rule.RuleModule = {
+export const excludeExtensions: Rule.RuleModule = {
   meta,
   create: (context) => {
     return {
