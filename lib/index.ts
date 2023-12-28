@@ -1,5 +1,5 @@
-import { excludeExtension } from './rules/exclude-extension';
+import { rules } from './rules';
 
-export const rules = {
-  'exclude-extension': excludeExtension,
+export = {
+  rules,
 };
