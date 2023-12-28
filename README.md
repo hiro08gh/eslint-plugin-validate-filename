@@ -39,20 +39,20 @@ TODO
 }
 ```
 
-### validate-filename/exclude-extension
+### validate-filename/exclude-extensions
 
 Only certain extensions are allowed. `target` is a regular expression that identifies the folder. `extensions` you want to allow for extensions.
 
 ```javascript
 {
   "rules": {
-    "validate-filename/exclude-extension": [
+    "validate-filename/exclude-extensions": [
       "error",
       {
         rules: [
           {
             target: "**/hooks/**",
-            extensions: ['.ts'], // This cannot be created except for .ts under the hooks folder.
+            extensions: ['.ts', '.tsx'], // This cannot be created except for .ts or .tsx under the hooks folder.
           }
         ]
       }
@@ -60,6 +60,6 @@ Only certain extensions are allowed. `target` is a regular expression that ident
 }
 ```
 
-## Next.js structure setting example
+## Next.js structure settings example
 
 TODO
