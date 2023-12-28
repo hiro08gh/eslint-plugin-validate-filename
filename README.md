@@ -55,7 +55,7 @@ Only certain extensions are allowed. `target` is a regular expression that ident
         rules: [
           {
             target: "**/hooks/**",
-            extensions: ['.ts'],
+            extensions: ['.ts'], // This cannot be created except for .ts under the hooks folder.
           }
         ]
       }
