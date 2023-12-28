@@ -30,8 +30,8 @@ Create a rule in the name of ESLint. `index` is an option that determines whethe
         rules: [
           {
             type: 'camel', // camel or pascal or snake or kebab or flat
-            target: "**/hooks/**",
-            patterns: '^use',
+            target: "**/hooks/**", // target hooks folder
+            patterns: '^use', // file names begin with "use".
           }
         ] 
       }
