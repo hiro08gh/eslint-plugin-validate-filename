@@ -10,8 +10,6 @@ npm install --save-dev eslint-plugin-validate-filename
 
 ## Uasge
 
-TODO
-
 ```javascript
 {
   "plugins": ["validate-filename"]
@@ -19,6 +17,8 @@ TODO
 ```
 
 ### validate-filename/naming-rules
+
+Create a rule in the name of ESLint. `index` is an option that determines whether files with index in the filename are allowed. You can set multiple `rules`.
 
 ```javascript
 {
@@ -29,7 +29,7 @@ TODO
         index: true,
         rules: [
           {
-            type: 'camel',
+            type: 'camel', // camel or pascal or snake or kebab or flat
             target: "**/hooks/**",
             patterns: '^use',
           }
