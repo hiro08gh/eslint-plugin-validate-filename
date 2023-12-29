@@ -33,6 +33,10 @@ ruleTester.run('naming-rules', namingRules, {
             },
             {
               type: 'camel',
+              target: '**/utils/**/*.ts',
+            },
+            {
+              type: 'camel',
               target: '**/hooks/**/*.tsx',
               patterns: '^use',
             },
