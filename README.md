@@ -29,12 +29,12 @@ Create a rule in the name of ESLint. `index` is an option that determines whethe
         index: true,
         rules: [
           {
-            type: 'pascal', // camel or pascal or snake or kebab or flat
+            case: 'pascal', // camel or pascal or snake or kebab or flat
             target: "**/components/**", // target "components" folder
             excludes: ['hooks'], // "hooks" folder is excluded.
           }
           {
-            type: 'camel',
+            case: 'camel',
             target: "**/hooks/**", // target "hooks" folder
             patterns: '^use', // file names begin with "use".
           }

@@ -14,7 +14,7 @@ const meta: Rule.RuleModule['meta'] = {
   },
   messages: {
     errorNoIndex: "Don't use index filename",
-    errorNoMatchType: '{{file}} does not match filename type',
+    errorNoMatchCase: '{{file}} does not match filename case',
     errorNoMatchPattern: '{{file}} does not match filename pattern',
   },
   schema: [
@@ -32,7 +32,7 @@ const meta: Rule.RuleModule['meta'] = {
             type: 'object',
             additionalProperties: false,
             properties: {
-              type: {
+              case: {
                 enum: Object.keys(regexCaseMap),
                 type: 'string',
               },
@@ -60,7 +60,7 @@ type RuleOptions = {
   index: boolean;
   rules: [
     {
-      type: keyof typeof regexCaseMap;
+      case: keyof typeof regexCaseMap;
       target: string;
       patterns: string;
       excludes: string[];
@@ -111,12 +111,12 @@ export const namingRules: Rule.RuleModule = {
             !micromatch.isMatch(
               // Consider cases with leading underscores. (ex: _document.tsx)
               filename.replace(/^_/, ''),
-              regexCaseMap[targetRule.type],
+              regexCaseMap[targetRule.case],
             )
           ) {
             context.report({
               node,
-              messageId: 'errorNoMatchType',
+              messageId: 'errorNoMatchCase',
               data: {
                 file,
               },

@@ -13,7 +13,7 @@ ruleTester.run('naming-rules', namingRules, {
         {
           rules: [
             {
-              type: 'pascal',
+              case: 'pascal',
               target: '**/components/**/*.tsx',
             },
           ],
@@ -27,7 +27,7 @@ ruleTester.run('naming-rules', namingRules, {
         {
           rules: [
             {
-              type: 'camel',
+              case: 'camel',
               target: '**/components/**/*.tsx',
             },
           ],
@@ -41,7 +41,7 @@ ruleTester.run('naming-rules', namingRules, {
         {
           rules: [
             {
-              type: 'camel',
+              case: 'camel',
               target: '**/components/**/*.tsx',
             },
           ],
@@ -55,16 +55,16 @@ ruleTester.run('naming-rules', namingRules, {
         {
           rules: [
             {
-              type: 'pascal',
+              case: 'pascal',
               target: '**/components/**/*.tsx',
               excludes: ['hooks'],
             },
             {
-              type: 'camel',
+              case: 'camel',
               target: '**/utils/**/*.ts',
             },
             {
-              type: 'camel',
+              case: 'camel',
               target: '**/hooks/**/*.tsx',
               patterns: '^use',
             },
@@ -79,7 +79,7 @@ ruleTester.run('naming-rules', namingRules, {
         {
           rules: [
             {
-              type: 'camel',
+              case: 'camel',
               target: '**/hooks/**/*.tsx',
               patterns: '^use',
             },
@@ -97,7 +97,7 @@ ruleTester.run('naming-rules', namingRules, {
           index: false,
           rules: [
             {
-              type: 'pascal',
+              case: 'pascal',
               target: '**/components/**/*.tsx',
             },
           ],
@@ -112,13 +112,13 @@ ruleTester.run('naming-rules', namingRules, {
         {
           rules: [
             {
-              type: 'camel',
+              case: 'camel',
               target: '**/components/**/*.tsx',
             },
           ],
         },
       ],
-      errors: ['App.tsx does not match filename type'],
+      errors: ['App.tsx does not match filename case'],
     },
     {
       code: '',
@@ -127,7 +127,7 @@ ruleTester.run('naming-rules', namingRules, {
         {
           rules: [
             {
-              type: 'camel',
+              case: 'camel',
               target: '**/hooks/**/*.tsx',
               patterns: '^use',
             },
