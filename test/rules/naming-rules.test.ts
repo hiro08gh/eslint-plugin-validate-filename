@@ -22,6 +22,20 @@ ruleTester.run('naming-rules', namingRules, {
     },
     {
       code: '',
+      filename: '/components/App.stories.tsx',
+      options: [
+        {
+          rules: [
+            {
+              case: 'pascal',
+              target: '**/components/**/*.tsx',
+            },
+          ],
+        },
+      ],
+    },
+    {
+      code: '',
       filename: '/components/_document.tsx',
       options: [
         {

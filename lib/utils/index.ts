@@ -20,3 +20,9 @@ export const regexCaseMap = {
    */
   flat: '+([a-z0-9])',
 } as const;
+
+export const getFilename = (filename: string) => {
+  return filename.indexOf('.') !== -1
+    ? filename.substring(0, filename.indexOf('.'))
+    : filename;
+};
