@@ -127,7 +127,7 @@ export const namingRules: Rule.RuleModule = {
 
           if (targetRule.patterns) {
             const pattern = new RegExp(targetRule.patterns);
-            if (!pattern.test(filename)) {
+            if (!pattern.test(file)) {
               context.report({
                 node,
                 messageId: 'errorNoMatchPattern',
