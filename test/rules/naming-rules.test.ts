@@ -103,7 +103,22 @@ ruleTester.run('naming-rules', namingRules, {
           ],
         },
       ],
-      errors: ["Don't use index filename."],
+      errors: ["Don't use index filename"],
+    },
+    {
+      code: '',
+      filename: '/components/App/App.tsx',
+      options: [
+        {
+          rules: [
+            {
+              type: 'camel',
+              target: '**/components/**/*.tsx',
+            },
+          ],
+        },
+      ],
+      errors: ['App.tsx does not match filename type'],
     },
     {
       code: '',
@@ -119,7 +134,7 @@ ruleTester.run('naming-rules', namingRules, {
           ],
         },
       ],
-      errors: ["Don't match filename pattern."],
+      errors: ['hooks.tsx does not match filename pattern'],
     },
   ],
 });

@@ -13,9 +13,9 @@ const meta: Rule.RuleModule['meta'] = {
     url: '',
   },
   messages: {
-    errorNoIndex: "Don't use index filename.",
-    errorNoMatchType: "Don't match filename type.",
-    errorNoMatchPattern: "Don't match filename pattern.",
+    errorNoIndex: "Don't use index filename",
+    errorNoMatchType: '{{file}} does not match filename type',
+    errorNoMatchPattern: '{{file}} does not match filename pattern',
   },
   schema: [
     {
@@ -90,6 +90,7 @@ export const namingRules: Rule.RuleModule = {
         );
         if (targetRule) {
           const ext = path.extname(filePath);
+          const file = path.basename(filePath);
           const filename = path.basename(filePath, ext);
           if (index === true && filename === 'index') {
             return;
@@ -115,7 +116,10 @@ export const namingRules: Rule.RuleModule = {
           ) {
             context.report({
               node,
-              messageId: 'errorNoIndex',
+              messageId: 'errorNoMatchType',
+              data: {
+                file,
+              },
             });
 
             return;
@@ -127,6 +131,9 @@ export const namingRules: Rule.RuleModule = {
               context.report({
                 node,
                 messageId: 'errorNoMatchPattern',
+                data: {
+                  file,
+                },
               });
 
               return;
