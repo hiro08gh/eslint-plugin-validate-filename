@@ -78,11 +78,11 @@ export const namingRules: Rule.RuleModule = {
         if (!rules || !filePath) {
           return;
         }
-        const dir = path.dirname(filePath);
-        const dirName = path.basename(dir);
         /**
          * target filename
          **/
+        const dirPath = path.dirname(filePath);
+        const dirName = path.basename(dirPath);
         const targetRule = rules.find(
           (v) =>
             micromatch.isMatch(filePath, v.target) &&
@@ -106,7 +106,13 @@ export const namingRules: Rule.RuleModule = {
             return;
           }
 
-          if (!micromatch.isMatch(filename, regexCaseMap[targetRule.type])) {
+          if (
+            !micromatch.isMatch(
+              // Consider cases with leading underscores. (ex: _document.tsx)
+              filename.replace(/^_/, ''),
+              regexCaseMap[targetRule.type],
+            )
+          ) {
             context.report({
               node,
               messageId: 'errorNoIndex',

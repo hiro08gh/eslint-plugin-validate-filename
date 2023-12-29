@@ -22,6 +22,34 @@ ruleTester.run('naming-rules', namingRules, {
     },
     {
       code: '',
+      filename: '/components/_document.tsx',
+      options: [
+        {
+          rules: [
+            {
+              type: 'camel',
+              target: '**/components/**/*.tsx',
+            },
+          ],
+        },
+      ],
+    },
+    {
+      code: '',
+      filename: '/components/_document.tsx',
+      options: [
+        {
+          rules: [
+            {
+              type: 'camel',
+              target: '**/components/**/*.tsx',
+            },
+          ],
+        },
+      ],
+    },
+    {
+      code: '',
       filename: 'components/hooks/useHooks.tsx',
       options: [
         {
