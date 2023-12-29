@@ -22,7 +22,27 @@ ruleTester.run('naming-rules', namingRules, {
     },
     {
       code: '',
-      filename: '/hooks/useHooks.tsx',
+      filename: 'components/hooks/useHooks.tsx',
+      options: [
+        {
+          rules: [
+            {
+              type: 'pascal',
+              target: '**/components/**/*.tsx',
+              excludes: ['hooks'],
+            },
+            {
+              type: 'camel',
+              target: '**/hooks/**/*.tsx',
+              patterns: '^use',
+            },
+          ],
+        },
+      ],
+    },
+    {
+      code: '',
+      filename: '/components/hooks/useHooks.tsx',
       options: [
         {
           rules: [

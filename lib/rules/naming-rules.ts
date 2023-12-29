@@ -42,6 +42,12 @@ const meta: Rule.RuleModule['meta'] = {
               patterns: {
                 type: 'string',
               },
+              excludes: {
+                type: 'array',
+                items: {
+                  type: 'string',
+                },
+              },
             },
           },
         },
@@ -57,6 +63,7 @@ type RuleOptions = {
       type: keyof typeof regexCaseMap;
       target: string;
       patterns: string;
+      excludes: string[];
     },
   ];
 };
@@ -71,11 +78,15 @@ export const namingRules: Rule.RuleModule = {
         if (!rules || !filePath) {
           return;
         }
+        const dir = path.dirname(filePath);
+        const dirName = path.basename(dir);
         /**
          * target filename
          **/
-        const targetRule = rules.find((v) =>
-          micromatch.isMatch(filePath, v.target),
+        const targetRule = rules.find(
+          (v) =>
+            micromatch.isMatch(filePath, v.target) &&
+            !v.excludes?.includes(dirName),
         );
         if (targetRule) {
           const ext = path.extname(filePath);
