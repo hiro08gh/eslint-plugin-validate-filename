@@ -1,6 +1,6 @@
 import path from 'path';
 import micromatch from 'micromatch';
-import { regexCaseMap } from '../utils';
+import { regexCaseMap, getFilename } from '../utils';
 
 import { Rule } from 'eslint';
 
@@ -91,7 +91,8 @@ export const namingRules: Rule.RuleModule = {
         if (targetRule) {
           const ext = path.extname(filePath);
           const file = path.basename(filePath);
-          const filename = path.basename(filePath, ext);
+          const filename = getFilename(path.basename(filePath, ext));
+
           if (index === true && filename === 'index') {
             return;
           }
