@@ -32,6 +32,7 @@ Create a rule in the name of ESLint. `index` is an option that determines whethe
             type: 'camel', // camel or pascal or snake or kebab or flat
             target: "**/hooks/**", // target hooks folder
             patterns: '^use', // file names begin with "use".
+            excludes: ['utils'], // Set the folder name. The specified folder is not subject to file checking.
           }
         ] 
       }
