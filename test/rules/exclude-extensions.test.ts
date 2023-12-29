@@ -1,10 +1,10 @@
 import { RuleTester } from 'eslint';
 
-import { excludeExtensions } from '../../lib/rules/exclude-extensions';
+import { limitExtensions } from '../../lib/rules/limit-extensions';
 
 const ruleTester = new RuleTester();
 
-ruleTester.run('exclude-extensions', excludeExtensions, {
+ruleTester.run('limit-extensions', limitExtensions, {
   valid: [
     {
       code: '',

@@ -39,14 +39,14 @@ Create a rule in the name of ESLint. `index` is an option that determines whethe
 }
 ```
 
-### validate-filename/exclude-extensions
+### validate-filename/limit-extensions
 
 Only certain extensions are allowed. `target` is a regular expression that identifies the folder. `extensions` you want to allow for extensions.
 
 ```javascript
 {
   "rules": {
-    "validate-filename/exclude-extensions": [
+    "validate-filename/limit-extensions": [
       "error",
       {
         rules: [

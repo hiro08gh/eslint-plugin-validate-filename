@@ -1,7 +1,7 @@
-import { excludeExtensions } from './exclude-extensions';
+import { limitExtensions } from './limit-extensions';
 import { namingRules } from './naming-rules';
 
 export const rules = {
-  'exclude-extensions': excludeExtensions,
+  'limit-extensions': limitExtensions,
   'naming-rules': namingRules,
 };
