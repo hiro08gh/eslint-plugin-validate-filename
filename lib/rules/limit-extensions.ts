@@ -11,7 +11,10 @@ const meta: Rule.RuleModule['meta'] = {
     url: '',
   },
   messages: {
-    errorNoMatchExtensionType: "Don't match extension type.",
+    errorNoMatchExtensionType:
+      '{{filename}} does not match filename extension type. Only {{extensions}} is allowed.',
+    errorNoMatchExtensionTypes:
+      '{{filename}} does not match filename extension type. Only {{extensions}} are allowed.',
   },
   schema: [
     {
@@ -67,11 +70,19 @@ export const limitExtensions: Rule.RuleModule = {
           micromatch.isMatch(filePath, v.target),
         );
         if (targetRule) {
+          const filename = path.basename(filePath);
           const ext = path.extname(filePath);
           if (!targetRule.extensions.includes(ext)) {
             context.report({
               node,
-              messageId: 'errorNoMatchExtensionType',
+              messageId:
+                targetRule.extensions.length === 1
+                  ? 'errorNoMatchExtensionType'
+                  : 'errorNoMatchExtensionTypes',
+              data: {
+                filename,
+                extensions: targetRule.extensions.join(', '),
+              },
             });
 
             return;

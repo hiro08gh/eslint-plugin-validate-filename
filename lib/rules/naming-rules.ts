@@ -13,9 +13,10 @@ const meta: Rule.RuleModule['meta'] = {
     url: '',
   },
   messages: {
-    errorNoIndex: "Don't use index filename",
-    errorNoMatchCase: '{{file}} does not match filename case',
-    errorNoMatchPattern: '{{file}} does not match filename pattern',
+    errorNoIndex: "Don't use index filename.",
+    errorNoMatchCase:
+      '{{file}} does not match filename case. Rename it to {{caseType}} case.',
+    errorNoMatchPattern: '{{file}} does not match filename pattern.',
   },
   schema: [
     {
@@ -120,6 +121,7 @@ export const namingRules: Rule.RuleModule = {
               messageId: 'errorNoMatchCase',
               data: {
                 file,
+                caseType: targetRule.case,
               },
             });
 

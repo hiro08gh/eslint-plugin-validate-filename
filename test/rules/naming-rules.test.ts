@@ -117,7 +117,7 @@ ruleTester.run('naming-rules', namingRules, {
           ],
         },
       ],
-      errors: ["Don't use index filename"],
+      errors: ["Don't use index filename."],
     },
     {
       code: '',
@@ -132,7 +132,9 @@ ruleTester.run('naming-rules', namingRules, {
           ],
         },
       ],
-      errors: ['App.tsx does not match filename case'],
+      errors: [
+        'App.tsx does not match filename case. Rename it to camel case.',
+      ],
     },
     {
       code: '',
@@ -148,7 +150,7 @@ ruleTester.run('naming-rules', namingRules, {
           ],
         },
       ],
-      errors: ['hooks.tsx does not match filename pattern'],
+      errors: ['hooks.tsx does not match filename pattern.'],
     },
   ],
 });

@@ -63,7 +63,26 @@ ruleTester.run('limit-extensions', limitExtensions, {
           ],
         },
       ],
-      errors: ["Don't match extension type."],
+      errors: [
+        'index.vue does not match filename extension type. Only .tsx is allowed.',
+      ],
+    },
+    {
+      code: '',
+      filename: '/components/App/index.vue',
+      options: [
+        {
+          rules: [
+            {
+              target: '**/components/**',
+              extensions: ['.tsx', '.ts'],
+            },
+          ],
+        },
+      ],
+      errors: [
+        'index.vue does not match filename extension type. Only .tsx, .ts are allowed.',
+      ],
     },
   ],
 });
