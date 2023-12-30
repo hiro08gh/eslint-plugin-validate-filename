@@ -105,22 +105,6 @@ ruleTester.run('naming-rules', namingRules, {
   invalid: [
     {
       code: '',
-      filename: '/components/App/index.tsx',
-      options: [
-        {
-          index: false,
-          rules: [
-            {
-              case: 'pascal',
-              target: '**/components/**/*.tsx',
-            },
-          ],
-        },
-      ],
-      errors: ["Don't use index filename."],
-    },
-    {
-      code: '',
       filename: '/components/App/App.tsx',
       options: [
         {

@@ -18,7 +18,7 @@ npm install --save-dev eslint-plugin-validate-filename
 
 ### validate-filename/naming-rules
 
-Create a rule in the name of ESLint. `index` is an option that determines whether files with index in the filename are allowed. You can set multiple `rules`.
+Create a rule in the name of ESLint. You can set multiple `rules`.
 
 ```javascript
 {
@@ -26,7 +26,6 @@ Create a rule in the name of ESLint. `index` is an option that determines whethe
     "validate-filename/naming-rules": [
       "error",
       {
-        index: true,
         rules: [
           {
             case: 'pascal', // camel or pascal or snake or kebab or flat

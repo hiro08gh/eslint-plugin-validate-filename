@@ -1,0 +1,47 @@
+{
+  "extends": "next/core-web-vitals",
+  "plugins": ["validate-filename"],
+  "rules": {
+    "validate-filename/naming-rules": [
+      "error",
+      {
+        "rules": [
+          {
+            "case": "kebab",
+            "target": "**/app/**",
+            "patterns": "^(page|layout|loading|error|not-found).tsx$"
+          },
+          {
+            "case": "pascal",
+            "target": "**/components/**"
+          },
+          {
+            "case": "camel",
+            "target": "**/hooks/**",
+            "patterns": "^use"
+          },
+          {
+            "case": "camel",
+            "target": "**/styles/**"
+          },
+          {
+            "case": "camel",
+            "target": "**/api/**",
+            "patterns": "^(get|post|delete|patch)"
+          }
+        ]
+      }
+    ],
+    "validate-filename/limit-extensions": [
+      "error",
+      {
+        "rules": [
+          {
+            "target": "**/src/**",
+            "extensions": [".tsx", ".ts"]
+          }
+        ]
+      }
+    ]
+  }
+}

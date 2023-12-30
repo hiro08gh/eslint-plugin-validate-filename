@@ -13,7 +13,6 @@ const meta: Rule.RuleModule['meta'] = {
     url: '',
   },
   messages: {
-    errorNoIndex: "Don't use index filename.",
     errorNoMatchCase:
       '{{file}} does not match filename case. Rename it to {{caseType}} case.',
     errorNoMatchPattern: '{{file}} does not match filename pattern.',
@@ -23,10 +22,6 @@ const meta: Rule.RuleModule['meta'] = {
       type: 'object',
       additionalProperties: false,
       properties: {
-        index: {
-          type: 'boolean',
-          default: true,
-        },
         rules: {
           type: 'array',
           items: {
@@ -74,7 +69,7 @@ export const namingRules: Rule.RuleModule = {
   create: (context) => {
     return {
       Program: (node) => {
-        const { index, rules }: RuleOptions = context.options[0];
+        const { rules }: RuleOptions = context.options[0];
         const filePath = context.filename;
         if (!rules || !filePath) {
           return;
@@ -94,18 +89,7 @@ export const namingRules: Rule.RuleModule = {
           const file = path.basename(filePath);
           const filename = getFilename(path.basename(filePath, ext));
 
-          if (index === true && filename === 'index') {
-            return;
-          }
-          /**
-           * check enable index filename. default: true
-           **/
-          if (index === false && filename === 'index') {
-            context.report({
-              node,
-              messageId: 'errorNoIndex',
-            });
-
+          if (filename === 'index') {
             return;
           }
 
