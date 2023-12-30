@@ -1,0 +1,27 @@
+{
+  "extends": "next/core-web-vitals",
+  "plugins": ["validate-filename"],
+  "rules": {
+    "validate-filename/naming-rules": [
+      "error",
+      {
+        "rules": [
+          {
+            "case": "camel",
+            "target": "**/app/**",
+            "patterns": "^(page|layout|loading|error|not-found).tsx$"
+          },
+          {
+            "case": "pascal",
+            "target": "**/components/**"
+          },
+          {
+            "case": "camel",
+            "target": "**/hooks/**",
+            "patterns": "^use"
+          }
+        ]
+      }
+    ]
+  }
+}
