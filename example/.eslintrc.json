@@ -7,7 +7,7 @@
       {
         "rules": [
           {
-            "case": "camel",
+            "case": "kebab",
             "target": "**/app/**",
             "patterns": "^(page|layout|loading|error|not-found).tsx$"
           },
@@ -19,6 +19,26 @@
             "case": "camel",
             "target": "**/hooks/**",
             "patterns": "^use"
+          },
+          {
+            "case": "camel",
+            "target": "**/styles/**"
+          },
+          {
+            "case": "camel",
+            "target": "**/api/**",
+            "patterns": "^(get|post|delete|patch)"
+          }
+        ]
+      }
+    ],
+    "validate-filename/limit-extensions": [
+      "error",
+      {
+        "rules": [
+          {
+            "target": "**/src/**",
+            "extensions": [".tsx", ".ts"]
           }
         ]
       }
