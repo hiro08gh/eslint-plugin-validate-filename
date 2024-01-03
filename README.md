@@ -1,6 +1,6 @@
 # eslint-plugin-validate-filename
 
-ESLint rule to force file names format. You can define folder names and patterns. Create common rules for file names by folder name or regex pattern.
+ESLint rule to force file names format. Create common rules for file names by folder name or regex pattern.
 
 ## Install
 
@@ -66,4 +66,5 @@ Only certain extensions are allowed. `target` is a regular expression that ident
 
 ## Next.js structure settings example
 
-TODO
+See [Next.js naming conventions are checked with ESLint rules](https://medium.com/@hiro08gh/next-js-naming-conventions-are-checked-with-eslint-rules-946371d67882)
+ article.
