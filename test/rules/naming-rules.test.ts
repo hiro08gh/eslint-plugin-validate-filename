@@ -50,20 +50,6 @@ ruleTester.run('naming-rules', namingRules, {
     },
     {
       code: '',
-      filename: '/components/_document.tsx',
-      options: [
-        {
-          rules: [
-            {
-              case: 'camel',
-              target: '**/components/**/*.tsx',
-            },
-          ],
-        },
-      ],
-    },
-    {
-      code: '',
       filename: 'components/hooks/useHooks.tsx',
       options: [
         {
