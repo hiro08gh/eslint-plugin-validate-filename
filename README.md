@@ -68,3 +68,7 @@ Only certain extensions are allowed. `target` is a regular expression that ident
 
 See [Next.js naming conventions are checked with ESLint rules](https://medium.com/@hiro08gh/next-js-naming-conventions-are-checked-with-eslint-rules-946371d67882)
  article.
+
+## License
+
+MIT License.© [hiro08gh](https://github.com/hiro08gh)
