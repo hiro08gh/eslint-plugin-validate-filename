@@ -64,6 +64,27 @@ Only certain extensions are allowed. `target` is a regular expression that ident
 }
 ```
 
+## Development
+
+First, install npm dependencies.
+
+```bash
+npm install
+```
+
+Running unit test. This library uses vitest.
+
+```bash
+npm run test
+```
+
+Build modules.
+
+```bash
+npm run build
+```
+
+
 ## Next.js structure settings example
 
 See [Next.js naming conventions are checked with ESLint rules](https://medium.com/@hiro08gh/next-js-naming-conventions-are-checked-with-eslint-rules-946371d67882)
