@@ -8,7 +8,7 @@ ESLint rule to force file names format. Create common rules for file names by fo
 npm install --save-dev eslint-plugin-validate-filename
 ```
 
-## Uasge
+## Usage
 
 ```javascript
 {
