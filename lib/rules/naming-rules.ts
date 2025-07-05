@@ -93,23 +93,25 @@ export const namingRules: Rule.RuleModule = {
             return;
           }
 
-          if (
-            !micromatch.isMatch(
-              // Consider cases with leading underscores. (ex: _document.tsx)
-              filename.replace(/^_/, ''),
-              regexCaseMap[targetRule.case],
-            )
-          ) {
-            context.report({
-              node,
-              messageId: 'errorNoMatchCase',
-              data: {
-                file,
-                caseType: targetRule.case,
-              },
-            });
+          if (targetRule.case) {
+            if (
+              !micromatch.isMatch(
+                // Consider cases with leading underscores. (ex: _document.tsx)
+                filename.replace(/^_/, ''),
+                regexCaseMap[targetRule.case],
+              )
+            ) {
+              context.report({
+                node,
+                messageId: 'errorNoMatchCase',
+                data: {
+                  file,
+                  caseType: targetRule.case,
+                },
+              });
 
-            return;
+              return;
+            }
           }
 
           if (targetRule.patterns) {
