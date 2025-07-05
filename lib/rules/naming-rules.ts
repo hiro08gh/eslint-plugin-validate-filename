@@ -46,6 +46,14 @@ const meta: Rule.RuleModule['meta'] = {
               },
             },
             required: ['target'],
+            anyOf: [
+              {
+                required: ['case'],
+              },
+              {
+                required: ['patterns'],
+              },
+            ],
           },
         },
       },
