@@ -45,6 +45,7 @@ const meta: Rule.RuleModule['meta'] = {
                 },
               },
             },
+            required: ['target'],
           },
         },
       },
@@ -56,10 +57,10 @@ type RuleOptions = {
   index: boolean;
   rules: [
     {
-      case: keyof typeof regexCaseMap;
+      case?: keyof typeof regexCaseMap;
       target: string;
-      patterns: string;
-      excludes: string[];
+      patterns?: string;
+      excludes?: string[];
     },
   ];
 };
