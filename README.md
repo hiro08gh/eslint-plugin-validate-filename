@@ -36,7 +36,11 @@ Create a rule in the name of ESLint. You can set multiple `rules`.
             case: 'camel',
             target: "**/hooks/**", // target "hooks" folder
             patterns: '^use', // file names begin with "use".
-          }
+          },
+          {
+            target: '/schemas/**', // target "schemas" folder
+            patterns: '^[a-z][a-zA-Z0-9]*\\.schema\\.ts$', // file names that contain 'schema'. ex: user.schema.ts
+          },
         ] 
       }
     ],
