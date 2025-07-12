@@ -31,7 +31,7 @@ Create a rule in the name of ESLint. You can set multiple `rules`.
             case: 'pascal', // camel or pascal or snake or kebab or flat
             target: "**/components/**", // target "components" folder
             excludes: ['hooks'], // "hooks" folder is excluded.
-          }
+          },
           {
             case: 'camel',
             target: "**/hooks/**", // target "hooks" folder
