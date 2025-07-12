@@ -41,9 +41,10 @@ Create a rule in the name of ESLint. You can set multiple `rules`.
             target: '/schemas/**', // target "schemas" folder
             patterns: '^[a-z][a-zA-Z0-9]*\\.schema\\.ts$', // file names that contain 'schema'. ex: user.schema.ts
           },
-        ] 
-      }
+        ],
+      },
     ],
+  },
 }
 ```
 
@@ -61,10 +62,11 @@ Only certain extensions are allowed. `target` is a regular expression that ident
           {
             target: "**/hooks/**",
             extensions: ['.ts', '.tsx'], // This cannot be created except for .ts or .tsx under the hooks folder.
-          }
-        ]
-      }
+          },
+        ],
+      },
     ],
+  },
 }
 ```
 
