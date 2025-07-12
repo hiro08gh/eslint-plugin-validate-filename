@@ -1,6 +1,6 @@
 {
   "name": "eslint-plugin-validate-filename",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "ESLint plugin validate filename.",
   "main": "dist/index.js",
   "repository": {
