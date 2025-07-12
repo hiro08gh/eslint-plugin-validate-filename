@@ -86,6 +86,21 @@ ruleTester.run('naming-rules', namingRules, {
           ],
         },
       ],
+    },    
+    {
+      code: '',
+      filename: '/components/Button/__tests__/Button.test.tsx',
+      options: [
+        {
+          rules: [
+            {
+              target: '**',
+              patterns: '^(?!.*\\.test\\.(ts|tsx)$).*$',
+              excludes: ['__tests__'],
+            },
+          ],
+        },
+      ],
     },
   ],
   invalid: [
@@ -121,6 +136,22 @@ ruleTester.run('naming-rules', namingRules, {
         },
       ],
       errors: ['hooks.tsx does not match filename pattern.'],
+    },
+    {
+      code: '',
+      filename: '/components/Button/Button.test.tsx',
+      options: [
+        {
+          rules: [
+            {
+              target: '**',
+              patterns: '^(?!.*\\.test\\.(ts|tsx)$).*$',
+              excludes: ['__tests__'],
+            },
+          ],
+        },
+      ],
+      errors: ['Button.test.tsx does not match filename pattern.'],
     },
   ],
 });

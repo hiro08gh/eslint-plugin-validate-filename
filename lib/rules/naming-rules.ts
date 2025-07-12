@@ -45,6 +45,15 @@ const meta: Rule.RuleModule['meta'] = {
                 },
               },
             },
+            required: ['target'],
+            anyOf: [
+              {
+                required: ['case'],
+              },
+              {
+                required: ['patterns'],
+              },
+            ],
           },
         },
       },
@@ -56,10 +65,10 @@ type RuleOptions = {
   index: boolean;
   rules: [
     {
-      case: keyof typeof regexCaseMap;
+      case?: keyof typeof regexCaseMap;
       target: string;
-      patterns: string;
-      excludes: string[];
+      patterns?: string;
+      excludes?: string[];
     },
   ];
 };
@@ -93,23 +102,25 @@ export const namingRules: Rule.RuleModule = {
             return;
           }
 
-          if (
-            !micromatch.isMatch(
-              // Consider cases with leading underscores. (ex: _document.tsx)
-              filename.replace(/^_/, ''),
-              regexCaseMap[targetRule.case],
-            )
-          ) {
-            context.report({
-              node,
-              messageId: 'errorNoMatchCase',
-              data: {
-                file,
-                caseType: targetRule.case,
-              },
-            });
+          if (targetRule.case) {
+            if (
+              !micromatch.isMatch(
+                // Consider cases with leading underscores. (ex: _document.tsx)
+                filename.replace(/^_/, ''),
+                regexCaseMap[targetRule.case],
+              )
+            ) {
+              context.report({
+                node,
+                messageId: 'errorNoMatchCase',
+                data: {
+                  file,
+                  caseType: targetRule.case,
+                },
+              });
 
-            return;
+              return;
+            }
           }
 
           if (targetRule.patterns) {
