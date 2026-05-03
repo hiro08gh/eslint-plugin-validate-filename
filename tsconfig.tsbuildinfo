@@ -1,0 +1,10 @@
+{
+	"root": [
+		"./lib/index.ts",
+		"./lib/rules/index.ts",
+		"./lib/rules/limit-extensions.ts",
+		"./lib/rules/naming-rules.ts",
+		"./lib/utils/index.ts"
+	],
+	"version": "6.0.3"
+}
